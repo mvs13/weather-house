@@ -1,12 +1,14 @@
 {
-  "name": "weather-house",
+  "name": "weather-watchtower",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build-bulma": "sass --load-path=node_modules ./src/scss/weather-watchtower.scss ./src/assets/css/weather-watchtower.css",
+    "start": "npm run build-bulma -- --watch"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
@@ -15,7 +17,9 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/vue-fontawesome": "^3.0.6",
     "bulma": "^1.0.0",
-    "vue": "^3.4.21"
+    "sass": "^1.72.0",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.3"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
