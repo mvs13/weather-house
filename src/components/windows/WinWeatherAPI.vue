@@ -3,6 +3,8 @@ import { ref } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faCloudSun, faTemperatureHalf, faLocationDot } from '@fortawesome/free-solid-svg-icons'
 
+const officialURL = 'https://www.weatherapi.com/'
+
 let location = ref(undefined)
 let temperature = ref(0)
 let description = ref('')

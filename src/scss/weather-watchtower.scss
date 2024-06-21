@@ -5,20 +5,30 @@ $brown: #757763;
 $beige-light: #d0d1cd;
 $beige-lighter: #eff0eb;
 
-/* Адрес цветовой схемы: https://colorscheme.ru/#0w21Tw0w0w0w0 */
-/* Основной Цвет */
-$color-primary-0: #ff7800;
-$color-primary-1: #bf7330;
-$color-primary-2: #a64e00;
-$color-primary-3: #ff9a40;
-$color-primary-4: #ffb573;
+/* Адрес цветовой схемы: https://colorscheme.ru/#0F31Fw0w0w0w0 */
 
-/* Дополнительный Цвет */
-$color-complement-0: #028e9b;
-$color-complement-1: #1e6d74;
-$color-complement-2: #015c65;
-$color-complement-3: #35c0cd;
-$color-complement-4: #5ec4cd;
+/* HEX коды */
+
+$color-primary-0: #ff8c00;
+/* Основной Цвет */
+$color-primary-1: #bf7f30;
+$color-primary-2: #a65b00;
+$color-primary-3: #ffa940;
+$color-primary-4: #ffc073;
+
+$color-secondary-a-0: #1144aa;
+/* Вторичный Цвет A */
+$color-secondary-a-1: #29467f;
+$color-secondary-a-2: #05296e;
+$color-secondary-a-3: #4575d4;
+$color-secondary-a-4: #6b8fd4;
+
+$color-secondary-b-0: #00a08a;
+/* Вторичный Цвет B */
+$color-secondary-b-1: #1e786c;
+$color-secondary-b-2: #00685a;
+$color-secondary-b-3: #34d0ba;
+$color-secondary-b-4: #5dd0c0;
 
 // Path to Bulma's sass folder
 @use "bulma/sass" with (
@@ -26,16 +36,19 @@ $color-complement-4: #5ec4cd;
   $family-secondary: "'Tinos', serif",
   $grey-dark: $brown,
   $grey-light: $beige-light,
+
   $primary: $color-primary-0,
+  $info: $color-secondary-a-2,
+  $success: $color-secondary-b-2,
+
   $white-ter: $color-primary-4,
   $link: $pink,
   $control-border-width: 2px,
   $input-shadow: none,
-  
-  $card-background-color: $color-primary-3,
-
+  $background: $color-secondary-a-4,
+  $card-background-color: $color-primary-4
 );
 
 // Import the Google Font
-@import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap");
