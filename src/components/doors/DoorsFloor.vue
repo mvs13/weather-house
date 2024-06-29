@@ -1,6 +1,11 @@
 <script setup>
+import { doorsList } from "./doors-list";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faPersonDigging } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPersonDigging,
+  faArrowUpRightFromSquare,
+} from "@fortawesome/free-solid-svg-icons";
+import IPClass from "../common/ipClass";
 const title = "Этаж дверей";
 const props = defineProps({
   params: {
@@ -13,10 +18,35 @@ const props = defineProps({
     },
   },
 });
+const location = new IPClass();
 </script>
 
 <template>
   <h3>{{ title }} - <FontAwesomeIcon :icon="faPersonDigging" /></h3>
+  <div :class="`fixed-grid has-${props.params.nCols}-cols`">
+    <div class="grid">
+      <div v-for="door in doorsList" :key="door.id" class="cell">
+        <div class="card">
+          <div v-if="door.logoUrl !== ''" class="card-image">
+            <img :src="door.logoUrl" :alt="door.title" />
+          </div>
+          <div class="card-header">
+            <div class="card-header-title">
+              {{ door.title }}
+            </div>
+          </div>
+          <div class="card-content">
+            <component :is="door.component" />
+          </div>
+          <div class="card-footer">
+            <a :href="door.officialURL" target="_blank">
+              <FontAwesomeIcon :icon="faArrowUpRightFromSquare" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss"></style>
