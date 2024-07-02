@@ -31,7 +31,9 @@ const list = random.uniqueArray(0, windowsList.length, props.params.nWindows);
       <div v-for="(ndx, index) in list" :key="index" class="cell">
         <div class="card">
           <div v-if="windowsList[ndx].logo !== ''" class="card-image">
-            <img :src="windowsList[ndx].logo" :alt="windowsList[ndx].title" />
+            <figure class="image">
+              <img :src="windowsList[ndx].logo" :alt="windowsList[ndx].title" />
+            </figure>
           </div>
           <div class="card-header">
             <div class="card-header-title">
@@ -40,7 +42,11 @@ const list = random.uniqueArray(0, windowsList.length, props.params.nWindows);
           </div>
           <div class="card-content"></div>
           <div class="card-footer">
-            <a :href="windowsList[ndx].officialURL" target="_blank">
+            <a
+              :href="windowsList[ndx].officialURL"
+              target="_blank"
+              class="card-footer-item"
+            >
               <FontAwesomeIcon :icon="faArrowUpRightFromSquare" />
             </a>
           </div>

@@ -12,12 +12,14 @@ class FloorsCls {
         nWindows: 3,
         nCols: 3,
       },
+      isUnderConstruction: true, // true - в разработке, false - готово
     },
     {
       id: 1,
       title: "Этаж дверей",
       component: "DoorsFloor",
       params: { nDoors: 3 },
+      isUnderConstruction: true,
     },
   ];
 }

@@ -10,12 +10,18 @@ class IPClass {
       ndx: "db-ip",
       url: "https://api.db-ip.com/v2/free/self",
     },
+    {
+      ndx: "geoplugin",
+      url: "http://www.geoplugin.net/json.gp",
+    },
+    { ndx: "ip-api", url: "http://ip-api.com/json" },
   ];
   location = undefined;
   detectedIP = undefined;
+  detectedPos = { lat: 0, lng: 0 };
   // ipLocation = require("ip-location");
 
-  constructor(api = "db-ip") {
+  constructor(api = "ip-api") {
     const useAPI = this.listAPI.find((item) => item.ndx === api);
     fetch(useAPI.url)
       .then((response) => response.json())
@@ -27,6 +33,17 @@ class IPClass {
             break;
           case "db-ip":
             this.detectedIP = data.ipAddress;
+            break;
+          case "geoplugin":
+            this.detectedIP = data.geoplugin_request;
+            this.detectedPos = {
+              lat: data.geoplugin_latitude,
+              lng: data.geoplugin_longitude,
+            };
+            break;
+          case "ip-api":
+            this.detectedIP = data.query;
+            this.detectedPos = { lat: data.lat, lng: data.lon };
             break;
           default:
             break;

@@ -22,14 +22,10 @@ const location = new IPClass();
 </script>
 
 <template>
-  <h3>{{ title }} - <FontAwesomeIcon :icon="faPersonDigging" /></h3>
   <div :class="`fixed-grid has-${props.params.nCols}-cols`">
     <div class="grid">
       <div v-for="door in doorsList" :key="door.id" class="cell">
         <div class="card">
-          <div v-if="door.logoUrl !== ''" class="card-image">
-            <img :src="door.logoUrl" :alt="door.title" />
-          </div>
           <div class="card-header">
             <div class="card-header-title">
               {{ door.title }}
@@ -39,8 +35,14 @@ const location = new IPClass();
             <component :is="door.component" />
           </div>
           <div class="card-footer">
-            <a :href="door.officialURL" target="_blank">
-              <FontAwesomeIcon :icon="faArrowUpRightFromSquare" />
+            <a
+              :href="door.officialURL"
+              target="_blank"
+              class="card-footer-item"
+            >
+              <span class="icon">
+                <FontAwesomeIcon :icon="faArrowUpRightFromSquare" />
+              </span>
             </a>
           </div>
         </div>
