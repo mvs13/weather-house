@@ -5,6 +5,7 @@ import {
   faArrowUpRightFromSquare,
   faPencilRuler,
 } from "@fortawesome/free-solid-svg-icons";
+
 const floors = FloorsCls;
 const pageTitle = "Этажи погодной башни";
 </script>

@@ -1,3 +1,4 @@
+import WinOpenMeteoAPI from "./WinOpenMeteoAPI.vue";
 export const windowsList = [
   {
     id: 0,
@@ -21,6 +22,8 @@ export const windowsList = [
     id: 3,
     title: "Free Weather API",
     officialURL: "https://open-meteo.com/",
+    docAPIURL: "https://open-meteo.com/en/docs",
     logo: "https://avatars.githubusercontent.com/u/86407831?s=200&v=4",
+    component: WinOpenMeteoAPI,
   },
 ];

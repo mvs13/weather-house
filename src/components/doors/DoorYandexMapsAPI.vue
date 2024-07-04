@@ -2,10 +2,15 @@
 import { defineComponent } from "vue";
 import { doorsList } from "./doors-list";
 import { useLocation } from "../../stores/location";
+import IPClass from "../common/ipClass";
 
 export default defineComponent({
   data() {
-    return { mapByYandex: undefined, locationStore: useLocation() };
+    return {
+      location: new IPClass(),
+      mapByYandex: undefined,
+      locationStore: useLocation(),
+    };
   },
   mounted() {
     let yandexMapsScript = document.createElement("script");
@@ -21,6 +26,7 @@ export default defineComponent({
   methods: {
     initYaMap() {
       let pos = this.locationStore.geo;
+      // console.log(pos, this.locationStore.position);
       this.mapByYandex = new ymaps.Map("map", {
         center: [pos.lat, pos.lng],
         zoom: this.locationStore.zoom,
@@ -30,17 +36,23 @@ export default defineComponent({
     },
     setNewLocation(e) {
       let coords = e.get("coords");
+      // console.log(coords);
+      this.mapByYandex.panTo([coords[0], coords[1]]);
+      // this.mapByYandex
+      //   .setCenter([coords[0], coords[1]], this.locationStore.zoom, {
+      //     checkZoomRange: true,
+      //   })
+      //   .then(
+      //     function (result) {
+      //       this.mapByYandex.setZoom(this.locationStore.zoom + 1, {
+      //         duration: 1000,
+      //       });
+      //     },
+      //     function (error) {
+      //       console.log("Set center error", error);
+      //     }
+      //   );
       this.locationStore.setPosition({ lat: coords[0], lng: coords[1] });
-      this.mapByYandex
-        .setCenter([coords[0], coords[1]], this.locationStore.zoom)
-        .then(
-          function (result) {
-            console.log("Set center success", result);
-          },
-          function (error) {
-            console.log("Set center error", error);
-          }
-        );
       console.log(this.locationStore.geo);
     },
   },

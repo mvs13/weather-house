@@ -7,6 +7,7 @@ export const useLocation = defineStore("location", {
       position: { lat: 0, lng: 0 },
       positionDefault: { lat: 55.76, lng: 37.64 }, // Moscow
       detectedByIP: undefined,
+      zoom: 10,
     };
   },
   getters: {

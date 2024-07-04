@@ -22,7 +22,8 @@ const props = defineProps({
   },
 });
 const random = randomClass;
-const list = random.uniqueArray(0, windowsList.length, props.params.nWindows);
+// const list = random.uniqueArray(0, windowsList.length, props.params.nWindows);
+const list = [3];
 </script>
 
 <template>
@@ -40,7 +41,9 @@ const list = random.uniqueArray(0, windowsList.length, props.params.nWindows);
               {{ windowsList[ndx].title }}
             </div>
           </div>
-          <div class="card-content"></div>
+          <div class="card-content">
+            <component :is="windowsList[ndx].component" />
+          </div>
           <div class="card-footer">
             <a
               :href="windowsList[ndx].officialURL"

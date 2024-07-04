@@ -19,7 +19,6 @@ class IPClass {
   location = undefined;
   detectedIP = undefined;
   detectedPos = { lat: 0, lng: 0 };
-  // ipLocation = require("ip-location");
 
   constructor(api = "ip-api") {
     const useAPI = this.listAPI.find((item) => item.ndx === api);
@@ -50,8 +49,7 @@ class IPClass {
         }
         this.location = useLocation();
         this.location.setIP(this.detectedIP);
-        // this.detectLocationByIp();
-        // console.log(this.location.IP);
+        this.location.setPosition(this.detectedPos);
       });
   }
   async detectLocationByIp() {
